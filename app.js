@@ -26,6 +26,10 @@ app.get('/api/articles', (req, res, next) => {
   res.json(articles);
 });
 
+app.use((req, res) => {
+  res.status(404).sendFile(__dirname + '/views/not-found.html');
+});
+
 // START THE SERVER
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
